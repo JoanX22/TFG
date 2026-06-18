@@ -1,0 +1,81 @@
+const API_URL = "/api";
+
+function cargarBacterias() {
+    const zona = document.getElementById("tablaBacterias");
+
+    zona.innerHTML = "<p>Cargando información...</p>";
+
+    Promise.all([
+        fetch(API_URL + "/bacterias").then(function (respuesta) {
+            if (!respuesta.ok) {
+                throw new Error("No se pudieron consultar las bacterias");
+            }
+
+            return respuesta.json();
+        }),
+
+        fetch(API_URL + "/resistencias").then(function (respuesta) {
+            if (!respuesta.ok) {
+                throw new Error("No se pudieron consultar las resistencias");
+            }
+
+            return respuesta.json();
+        })
+    ])
+    .then(function (resultados) {
+        const bacterias = resultados[0];
+        const resistencias = resultados[1];
+
+        let html =
+            "<table>" +
+                "<tr>" +
+                    "<th>Bacteria</th>" +
+                    "<th>Familia</th>" +
+                    "<th>Descripción</th>" +
+                    "<th>Antibiótico analizado</th>" +
+                    "<th>Nivel de resistencia</th>" +
+                "</tr>";
+
+        bacterias.forEach(function (bacteria) {
+            const datosResistencia = resistencias.filter(
+                function (resistencia) {
+                    return resistencia.bacteria === bacteria.nombre;
+                }
+            );
+
+            if (datosResistencia.length === 0) {
+                html +=
+                    "<tr>" +
+                        "<td>" + bacteria.nombre + "</td>" +
+                        "<td>" + bacteria.familia + "</td>" +
+                        "<td>" + bacteria.descripcion + "</td>" +
+                        "<td>Sin información</td>" +
+                        "<td>Sin información</td>" +
+                    "</tr>";
+            } else {
+                datosResistencia.forEach(function (resistencia) {
+                    html +=
+                        "<tr>" +
+                            "<td>" + bacteria.nombre + "</td>" +
+                            "<td>" + bacteria.familia + "</td>" +
+                            "<td>" + bacteria.descripcion + "</td>" +
+                            "<td>" + resistencia.antibiotico + "</td>" +
+                            "<td>" + resistencia.nivel + "</td>" +
+                        "</tr>";
+                });
+            }
+        });
+
+        html += "</table>";
+
+        zona.innerHTML = html;
+    })
+    .catch(function (error) {
+        zona.innerHTML =
+            '<div class="resultado">' + error.message + "</div>";
+
+        console.error(error);
+    });
+}
+
+cargarBacterias();
