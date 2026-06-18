@@ -1,0 +1,46 @@
+const API_URL = "/api";
+
+function cargarResistencias() {
+    const zona = document.getElementById("tablaResistencias");
+
+    zona.innerHTML = "<p>Cargando resistencias...</p>";
+
+    fetch(API_URL + "/resistencias")
+        .then(function (respuesta) {
+            if (!respuesta.ok) {
+                throw new Error("No se pudieron consultar las resistencias");
+            }
+
+            return respuesta.json();
+        })
+        .then(function (resistencias) {
+            let html =
+                "<table>" +
+                    "<tr>" +
+                        "<th>Bacteria</th>" +
+                        "<th>Antibiótico analizado</th>" +
+                        "<th>Nivel de resistencia</th>" +
+                    "</tr>";
+
+            resistencias.forEach(function (resistencia) {
+                html +=
+                    "<tr>" +
+                        "<td>" + resistencia.bacteria + "</td>" +
+                        "<td>" + resistencia.antibiotico + "</td>" +
+                        "<td>" + resistencia.nivel + "</td>" +
+                    "</tr>";
+            });
+
+            html += "</table>";
+
+            zona.innerHTML = html;
+        })
+        .catch(function (error) {
+            zona.innerHTML =
+                '<div class="resultado">' + error.message + "</div>";
+
+            console.error(error);
+        });
+}
+
+cargarResistencias();
