@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef3f6;
+    color: #1f2d3d;
+}
+
+header {
+    background: #0b3d4a;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin: 8px 0 0;
+}
+
+nav {
+    background: #d9e7ec;
+    padding: 15px;
+    text-align: center;
+}
+
+.boton-menu {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background: #0b3d4a;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.boton-menu:hover,
+.boton-menu.activo {
+    background: #14596b;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-busqueda {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input {
+    padding: 10px;
+    width: 280px;
+    max-width: 100%;
+    border: 1px solid #b8c7d1;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background: #0b3d4a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #14596b;
+}
+
+.resultado {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f4f8fa;
+    border-left: 5px solid #0b3d4a;
+}
+
+.resultado.error {
+    border-left-color: #a32626;
+    background: #fff1f1;
+}
+
+.aviso {
+    background: #fff4d6;
+    border-left: 5px solid #d6a300;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th,
+td {
+    border: 1px solid #ccd6dd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #0b3d4a;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background: #f4f8fa;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #d9e7ec;
+    margin-top: 30px;
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}

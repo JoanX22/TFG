@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFDEMIC - Bacterias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>INFDEMIC</h1>
+    <p>Consulta de bacterias</p>
+</header>
+
+<nav>
+    <a class="boton-menu" href="index.html">Casos clínicos</a>
+    <a class="boton-menu activo" href="bacterias.html">Bacterias</a>
+    <a class="boton-menu" href="resistencias.html">Resistencias</a>
+</nav>
+
+<main>
+    <section class="card">
+        <h2>Bacterias registradas</h2>
+
+        <div class="aviso">
+            Pulsa el botón para consultar la bacteria, su familia,
+            descripción, antibiótico analizado y nivel de resistencia.
+            Un nivel alto indica que ese antibiótico puede ser menos eficaz.
+        </div>
+
+        <button type="button" id="btnBacterias">
+            Consultar bacterias
+        </button>
+
+        <div id="tablaBacterias"></div>
+    </section>
+</main>
+
+<footer>
+    <p>Demo académica INFDEMIC - Datos ficticios</p>
+</footer>
+
+<script src="bacterias.js?v=5"></script>
+</body>
+</html>

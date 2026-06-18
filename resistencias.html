@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFDEMIC - Resistencias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>INFDEMIC</h1>
+    <p>Consulta de resistencias a antibióticos</p>
+</header>
+
+<nav>
+    <a class="boton-menu" href="index.html">Casos clínicos</a>
+    <a class="boton-menu" href="bacterias.html">Bacterias</a>
+    <a class="boton-menu activo" href="resistencias.html">Resistencias</a>
+</nav>
+
+<main>
+    <section class="card">
+        <h2>Resistencias registradas</h2>
+
+        <div class="aviso">
+            Pulsa el botón para consultar las resistencias
+            a antibióticos registradas en la demo.
+        </div>
+
+        <button type="button" id="btnResistencias">
+            Consultar resistencias
+        </button>
+
+        <div id="tablaResistencias"></div>
+    </section>
+</main>
+
+<footer>
+    <p>Demo académica INFDEMIC - Datos ficticios</p>
+</footer>
+
+<script src="resistencias.js?v=5"></script>
+</body>
+</html>

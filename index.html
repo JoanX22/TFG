@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFDEMIC - Casos clínicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>INFDEMIC</h1>
+    <p>Plataforma sanitaria privada - Demo local</p>
+</header>
+
+<nav>
+    <a class="boton-menu activo" href="index.html">Casos clínicos</a>
+    <a class="boton-menu" href="bacterias.html">Bacterias</a>
+    <a class="boton-menu" href="resistencias.html">Resistencias</a>
+</nav>
+
+<main>
+    <section class="card">
+        <h2>Buscar caso clínico por ESIP ficticia</h2>
+
+        <div class="formulario-busqueda">
+            <input
+                type="text"
+                id="esip"
+                value="ESIP-CV-000245"
+                placeholder="Introduce una ESIP"
+            >
+
+            <button type="button" id="btnBuscar">Buscar</button>
+        </div>
+
+        <div id="resultado"></div>
+    </section>
+</main>
+
+<footer>
+    <p>Demo académica INFDEMIC - Datos ficticios</p>
+</footer>
+
+<script src="app.js?v=5"></script>
+</body>
+</html>
